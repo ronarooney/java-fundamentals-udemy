@@ -27,13 +27,12 @@ public class Printer {
         }
     }
 
-    public int print(int pages) {
+    public int printPages(int pages) {
         int pagesToPrint = pages;
-        if (this.isDuplex) {
-            pagesToPrint /= 2;
-            System.out.println("Printing in duplex mode.");
+        if (duplex) {
+            pagesToPrint = (pagesToPrint / 2) + (pagesToPrint % 2);
         }
-        this.printedPages += pagesToPrint;
+        pagesPrinted += pagesToPrint;
         return pagesToPrint;
     }
 
